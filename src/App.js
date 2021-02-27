@@ -9,10 +9,13 @@ function App() {
   return (
     <div className="App">
       {runGame ? ( <WelcomeScreen playerName={playerName}/>
-      ) : ( <GameScreen />
+      ) : ( 
+        <GameScreen
+          runGame={runGame}
+          setRunGame={setRunGame} 
+          playerName={playerName}
+        />
       )}
-      
-      
     </div>
   );
 }
