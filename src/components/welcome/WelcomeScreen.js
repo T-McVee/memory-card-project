@@ -5,9 +5,9 @@ export const WelcomeScreen = props => {
   const { playerName, handleSubmit } = props
   return (
     <div className="welcome-screen">
+      <div className="rm-logo"></div>
       <Heading />
       <SettingsForm handleSubmit={handleSubmit}/>
-      <img src="src/img/rick-and-morty.png" alt="" className=""/>
       <div className="characters"></div>
     </div>
   )

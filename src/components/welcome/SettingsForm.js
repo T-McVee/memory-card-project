@@ -8,6 +8,7 @@ export const SettingsForm = (props) => {
       <FormControl htmlFor="name" label="Name">
         <input type="text" id="name" name="name" required />
       </FormControl>
+      <span>Select your card deck</span>
       <div className="radio-group">
         <FormControl htmlFor="morty" label="Morty">
           <input type="radio" id="morty" value="Morty" name="deck" />
