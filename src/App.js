@@ -6,9 +6,19 @@ import { GameScreen } from './components/game/GameScreen'
 function App() {
   const [playerName, setPlayerName] = useState('Tim');
   const [runGame, setRunGame] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    setRunGame(true)
+  }
   return (
     <div className="App">
-      {runGame ? ( <WelcomeScreen playerName={playerName}/>
+      {!runGame ? ( 
+        <WelcomeScreen 
+          playerName={playerName} 
+          handleSubmit={handleSubmit}
+        />
       ) : ( 
         <GameScreen
           runGame={runGame}

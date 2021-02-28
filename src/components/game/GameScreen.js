@@ -28,8 +28,16 @@ export const GameScreen = props => {
     return deck;
   }
 
-  //populate the cards array with the created deck on mount
-  useEffect(() => setCards(createDeck(12)), []);
+  // Shuffle Deck
+  const shuffleDeck = (deck) => {
+    return deck.sort(() => Math.random() - 0.5)
+  }
+
+  // On mount populate cards array
+  useEffect(() => {
+    const deck = createDeck(12);
+    setCards(shuffleDeck(deck)) 
+  }, []);
 
   // return the id of the clicked card
   const getId = (e) => {
@@ -52,7 +60,7 @@ export const GameScreen = props => {
       setCards(otherCards.concat(clickedCard));
       setScore(score + 1);
 
-      setCards(cards.sort(() => Math.random() - 0.5))
+      setCards(shuffleDeck(cards))
 
       // check if unclicked cards remain 
       if (cards.filter(card => card.isClicked === false)) {

@@ -1,3 +1,86 @@
+.welcome-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  /* img {
+    width: 600px;
+    height: 600px;
+  } */
+}
+.welcome-screen .characters {
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  right: 25%;
+  width: 100%;
+  height: 200px;
+  background-image: url("../img/rick-and-morty.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.heading .title {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+.heading .sub-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #3a99bb;
+}
+.settings-form .form-control {
+  margin: 0.25rem 0.25rem;
+}
+.settings-form .form-control label {
+  margin-right: 0.25rem;
+}
+.settings-form .form-control input[type=text] {
+  padding: 0.25rem 0.5rem;
+  background-color: #fcf5cd;
+  border: none;
+  border-bottom: 2px solid #353535;
+  font-family: "Amatic SC", cursive;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.settings-form .form-control button {
+  padding: 0.25rem 1.25rem;
+  border: 3px solid #b1b1b1;
+  border-radius: 8px;
+  background-color: #717171;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "IBM Plex Sans", sans-serif;
+  text-transform: uppercase;
+}
+.settings-form .radio-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,7 +88,17 @@
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Amatic SC", cursive;
+  color: #353535;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #fcf5cd;
 }
 
 .game-screen {
