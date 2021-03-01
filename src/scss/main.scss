@@ -1,5 +1,6 @@
 @import 'config';
 @import 'welcome-screen';
+@import 'game-screen';
 
 * {
   box-sizing: border-box;
@@ -19,55 +20,4 @@ body {
   min-height: 100vh;
   min-width: 100vw;
   background-color: $bg-color;
-}
-
-.game-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: $bg-color;
-}
-
-nav {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 1.5rem;
-  background-color: red;
-  .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-  }
-}
-
-.game-board {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  column-gap: 10px;
-  row-gap: 10px;
-  background-color: $bg-color;
-  width: 90%;
-
-  .card {
-    justify-self: center;
-    align-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 60px;
-    background-color: $card-color;
-    border-radius: 4px;
-    margin: 0.5rem;
-    &:hover {
-      cursor: pointer;
-    }
-    .content {
-      color: $text-color-blue;
-    }
-  }
 }

@@ -1,0 +1,64 @@
+.game-screen {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $bg-color;
+
+  nav {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 2rem;
+    background-color: red;
+    font-size: 1.5rem;
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      padding: 1rem 5rem;
+
+      .credits {
+        width: 0;
+      }
+    }
+  }
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  column-gap: 10px;
+  row-gap: 10px;
+  background-color: $bg-color;
+  width: 100%;
+
+  .card {
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+    height: 8rem;
+    background-color: $card-color;
+    border-radius: 4px;
+    margin: 0.5rem;
+    &:hover {
+      cursor: pointer;
+    }
+    .content {
+      color: $text-color-blue;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+}

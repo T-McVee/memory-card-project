@@ -1,5 +1,4 @@
 import React from 'react'
-import uuid from 'react-uuid'
 import { Card } from './Card'
 
 export const GameBoard = (props) => {

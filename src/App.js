@@ -5,7 +5,19 @@ import { GameScreen } from './components/game/GameScreen'
 
 function App() {
   const [playerName, setPlayerName] = useState('Tim');
+  const [deckTheme, setDeckTheme] = useState('morty');
   const [runGame, setRunGame] = useState(false);
+
+  const handleNameChange = (e) => {
+    const {value} = e.target
+
+    setPlayerName(value);
+  }
+
+  const toggleDeck = e => {
+    const theme = e.target.value;
+    setDeckTheme(theme)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -15,8 +27,10 @@ function App() {
   return (
     <div className="App">
       {!runGame ? ( 
-        <WelcomeScreen 
-          playerName={playerName} 
+        <WelcomeScreen  
+          deckTheme={deckTheme}
+          handleNameChange={handleNameChange}
+          toggleDeck={toggleDeck}
           handleSubmit={handleSubmit}
         />
       ) : ( 
@@ -24,6 +38,7 @@ function App() {
           runGame={runGame}
           setRunGame={setRunGame} 
           playerName={playerName}
+          deckTheme={deckTheme}
         />
       )}
     </div>

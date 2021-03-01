@@ -1,13 +1,19 @@
 import { Heading } from './Heading'
 import { SettingsForm } from './SettingsForm' 
 
+
 export const WelcomeScreen = props => {
-  const { playerName, handleSubmit } = props
+  const { handleNameChange, toggleDeck, handleSubmit } = props
+
   return (
     <div className="welcome-screen">
       <div className="rm-logo"></div>
       <Heading />
-      <SettingsForm handleSubmit={handleSubmit}/>
+      <SettingsForm 
+        handleNameChange={handleNameChange}
+        toggleDeck={toggleDeck}
+        handleSubmit={handleSubmit}
+      />
       <div className="characters"></div>
     </div>
   )

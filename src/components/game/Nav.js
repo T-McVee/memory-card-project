@@ -6,8 +6,7 @@ export const Nav = props => {
   return (
     <nav>
       <div className="container">
-        <div className="logo">{playerName}'s game</div>
-        <div className="score">Current score: {score}</div>
+        <div className="score">{playerName}'s score: {score}</div>
         <div className="credits"></div>
       </div>
     </nav>

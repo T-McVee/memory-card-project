@@ -5,12 +5,20 @@ import { GameBoard } from '../game/GameBoard'
 import uuid from 'react-uuid';
 
 export const GameScreen = props => {
-  const { playerName, setRunGame } = props;
+  const { playerName, deckTheme, setRunGame } = props;
   
   // setup state
   const [score, setScore] = useState(0);
-  const [cardIsClicked, setCardIsClicked] = useState(false)
   const [cards, setCards] = useState([]);
+
+  /* Api test */
+  const apiCall = () => {
+    fetch(`https://rickandmortyapi.com/api/character/?name=${deckTheme}`)
+    .then(response => response.json())
+    .then(data => console.log(data))
+  }
+
+  apiCall()
 
   // Create deck of n cards
   const createDeck = (deckSize) => {
@@ -19,7 +27,7 @@ export const GameScreen = props => {
       const card = {
         id: uuid(),
         content: i,
-        isClicked: cardIsClicked,
+        isClicked: false,
       }
 
       deck.push(card);
@@ -70,25 +78,6 @@ export const GameScreen = props => {
     }
 
     console.log(cards);
-
-    /* 
-    onClick - 
-    - identify card from cards array
-    - check if card has been clicked
-    - IF clicked > end game
-      - Else > 
-        - Set card's isClicked to true 
-        - increment score + 1
-        - Shuffle cards and rerender
-      - Check if unclicked cards remain
-      - If false > end game
-      - if true > return
-    */
-
-
-
-
-    //const clickedCard = cards.filter(card => card.id === id)
   }
 
   return (
