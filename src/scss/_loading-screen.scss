@@ -1,0 +1,39 @@
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .loading-text {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .loading-portal {
+      background-image: url('../img/portal.gif');
+      background-size: cover;
+      width: 320px;
+      height: 300px;
+      transition: transform 0.4s;
+      animation: grow 3.5s infinite;
+      animation-direction: alternate;
+      &:hover {
+        transform: scale(0.8);
+      }
+    }
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.6);
+  }
+}

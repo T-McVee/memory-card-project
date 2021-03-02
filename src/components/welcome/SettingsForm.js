@@ -1,3 +1,4 @@
+import { Children } from 'react';
 import { FormControl } from './FormControl'
 
 export const SettingsForm = (props) => {
@@ -33,6 +34,7 @@ export const SettingsForm = (props) => {
       <FormControl>
         <button type="submit">Start</button>
       </FormControl>
+      {props.children}
     </form>
   )
 }

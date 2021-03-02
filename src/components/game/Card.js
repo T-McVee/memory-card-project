@@ -5,7 +5,10 @@ export const Card = (props) => {
   
   return (
     <div id={id} className="card" onClick={(e) => handleClick(e)}>
-      <div className="content">{content}</div>
+      <div className="content-img">
+        <img className="avatar" src={content.image} alt=""/>
+      </div>
+      <div className="content-name">{content.name}</div>
     </div>
   )
 }

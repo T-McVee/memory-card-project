@@ -10,7 +10,7 @@
   .rm-logo {
     width: 380px;
     height: 120px;
-    margin: 0 3rem;
+    margin-left: 55px;
     background-image: url('../img/Rick_and_Morty_logo.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -59,7 +59,7 @@
   font-weight: 700;
   text-transform: uppercase;
   color: $text-color-blue;
-  background-color: $green-blue;
+  background-image: url('../img/static.gif');
   border-radius: 8px;
   border: 6px solid $dark-grey;
   margin-top: 1.5rem;
@@ -67,15 +67,17 @@
   box-shadow: 2px 2px 8px $dark-grey, -2px -2px 8px $dark-grey;
 
   .form-control {
+    z-index: 10;
     margin: 0.25rem 0.25rem;
 
     label {
+      z-index: 10;
       margin-right: 0.25rem;
     }
 
     input[type='text'] {
       padding: 0.25rem 0.5rem;
-      background-color: $green-blue;
+      background-color: rgba($color: #000000, $alpha: 0);
       border: none;
       border-bottom: 2px solid $black;
       font-family: 'Amatic SC', cursive;
@@ -84,6 +86,9 @@
     }
 
     button {
+      z-index: 1;
+      position: relative;
+      top: 100px;
       padding: 0.25rem 1.25rem;
       border: 3px solid $light-grey;
       border-radius: 8px;
@@ -104,9 +109,22 @@
   }
 
   .radio-group {
+    z-index: 10;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+  }
+
+  .overlay {
+    z-index: 0;
+    position: absolute;
+    opacity: 0.85;
+    min-width: calc(314px + 0rem);
+    min-height: 168px;
+    background-color: $green-blue;
+  }
+  span {
+    z-index: 10;
   }
 }

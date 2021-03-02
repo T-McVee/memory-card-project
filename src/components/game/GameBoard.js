@@ -1,8 +1,12 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { Card } from './Card'
 
 export const GameBoard = (props) => {
-  const { cards, handleClick } = props
+  const { characters, cards, createDeck, setCards, shuffleDeck, handleClick } = props
+
+ 
+
+ 
 
   return (
     <section className="game-board" id="gameBoard">
