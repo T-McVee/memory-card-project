@@ -4,11 +4,17 @@ import { GameBoard } from '../game/GameBoard'
 import uuid from 'react-uuid';
 
 export const GameScreen = props => {
-  const { playerName, deckTheme, isLoading, setIsLoading, setRunGame } = props;
+  const { 
+    playerName, 
+    characters, 
+    isLoading, 
+    setIsLoading, 
+    setRunGame, 
+    setGameOver, 
+    setVictory 
+  } = props;
   
-  // setup state
   const [score, setScore] = useState(0);
-  const [characters, setCharacters] = useState({});
   const [cards, setCards] = useState([]);
   
 
@@ -39,20 +45,13 @@ export const GameScreen = props => {
 
   // On mount populate cards array
   useEffect(() => {
-    (async () => {
-      const url = `https://rickandmortyapi.com/api/character/?name=${deckTheme}`
-      const response = await fetch(url)
-      const data = await response.json()
-      setCharacters(data.results)
-      setIsLoading(false)
-    })()
-
-    if(!isLoading) {
-      const deck = createDeck(12, characters);
-      setCards(deck);
+    const deck = createDeck(12, characters);
+    setCards(deck);
+   
+    return () => {
+      setIsLoading(true)
     }
-    
-  }, [isLoading]);
+  }, []);
    
 
   // return the id of the clicked card
@@ -70,6 +69,8 @@ export const GameScreen = props => {
 
     if (clickedCard.isClicked) {
       setRunGame(false);
+      //setGameOver(true);
+
     } else {
       clickedCard.isClicked = true;
 
@@ -79,14 +80,14 @@ export const GameScreen = props => {
 
       setCards(shuffleDeck(cards))
 
-      // check if unclicked cards remain 
-      if (cards.filter(card => card.isClicked === false)) {
-        // - Shuffle cards and rerender
-        console.log('Unclicked cards remain')
+      // check if all cards are clicked
+      if (cards.filter(card => card.isClicked === false).length === 0) {
+        console.log('YOU DID IT MORTY!')
+        setVictory(true);
       } 
+        // - Shuffle cards and rerender
+        //setRunGame(false)
     }
-
-    console.log(cards);
   }
 
   return (

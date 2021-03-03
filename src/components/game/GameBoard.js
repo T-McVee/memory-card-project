@@ -2,11 +2,7 @@ import { useEffect } from 'react'
 import { Card } from './Card'
 
 export const GameBoard = (props) => {
-  const { characters, cards, createDeck, setCards, shuffleDeck, handleClick } = props
-
- 
-
- 
+  const { cards, handleClick } = props
 
   return (
     <section className="game-board" id="gameBoard">
@@ -15,6 +11,7 @@ export const GameBoard = (props) => {
           key={card.id} 
           id={card.id}
           content={card.content}
+          isClicked={card.isClicked}
           handleClick={handleClick}
         />
       )}

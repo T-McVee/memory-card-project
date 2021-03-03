@@ -2,12 +2,16 @@ import React, { useState } from 'react'
 import './style/main.css'
 import { WelcomeScreen } from './components/welcome/WelcomeScreen'
 import { LoadingScreen } from './components/LoadingScreen'
+import { VictoryScreen } from './components/VictoryScreen'
 import { GameScreen } from './components/game/GameScreen'
 
 function App() {
   const [playerName, setPlayerName] = useState('Tim');
   const [deckTheme, setDeckTheme] = useState('morty');
+  const [characters, setCharacters] = useState({});
   const [runGame, setRunGame] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
+  const [victory, setVictory] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const handleNameChange = (e) => {
@@ -28,24 +32,34 @@ function App() {
   }
   return (
     <div className="App">
-      {!runGame ? ( 
-        <LoadingScreen />
-        /* <WelcomeScreen  
+      {!runGame ?
+        <WelcomeScreen  
           deckTheme={deckTheme}
           handleNameChange={handleNameChange}
           toggleDeck={toggleDeck}
           handleSubmit={handleSubmit}
-        /> */
-      ) : isLoading ? ( 
+        />
+       : runGame && isLoading ? 
+        <LoadingScreen
+          deckTheme={deckTheme} 
+          characters={characters}
+          setCharacters={setCharacters}
+          setIsLoading={setIsLoading}
+        />
+       : !gameOver && victory ? 
+        <VictoryScreen />
+       : 
         <GameScreen
           runGame={runGame}
           setRunGame={setRunGame}
           playerName={playerName}
           deckTheme={deckTheme}
+          characters={characters}
           isLoading={isLoading}
           setIsLoading={setIsLoading}
-        />
-      ) : <p>Yay</p>}
+          setGameOver={setGameOver}
+          setVictory={setVictory}
+        />}
     </div>
   );
 }
