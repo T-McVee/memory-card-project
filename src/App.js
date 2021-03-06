@@ -30,6 +30,15 @@ function App() {
 
     setRunGame(true)
   }
+
+  const returnHome = (e) => {
+    e.preventDefault()
+
+    setRunGame(false)
+    setDeckTheme('morty')
+    setVictory(false)
+    setIsLoading(true)
+  }
   return (
     <div className="App">
       {!runGame ?
@@ -47,7 +56,7 @@ function App() {
           setIsLoading={setIsLoading}
         />
        : !gameOver && victory ? 
-        <VictoryScreen />
+        <VictoryScreen returnHome={returnHome}/>
        : 
         <GameScreen
           runGame={runGame}

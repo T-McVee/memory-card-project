@@ -2,6 +2,7 @@
 @import 'welcome-screen';
 @import 'loading-screen';
 @import 'game-screen';
+@import 'victory-screen';
 
 * {
   box-sizing: border-box;
@@ -12,13 +13,49 @@
 body {
   font-family: 'Amatic SC', cursive;
   color: $text-color-primary;
+  background-color: $green-blue;
+  min-height: 100%;
 }
 
 .App {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  min-width: 100vw;
+  min-height: 100%;
+  min-width: 100%;
   background-color: $bg-color;
+}
+
+.welcome-screen,
+.game-screen,
+.loading-screen,
+.victory-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  min-height: 100%;
+  padding: 1rem 3rem;
+  background-image: radial-gradient($bg-color 52%, rgba($dark-grey, 0.12));
+}
+
+.btn-large {
+  z-index: 1;
+  padding: 0.25rem 1.25rem;
+  border: 3px solid $light-grey;
+  border-radius: 8px;
+  background-color: $dark-grey;
+  color: $white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'IBM Plex Sans', sans-serif;
+  text-transform: uppercase;
+  transition: box-shadow 0.5s, transform 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 8px $green, -2px -2px 8px $green;
+    transform: scale(0.95);
+  }
 }

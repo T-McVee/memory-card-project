@@ -11,7 +11,7 @@ export const GameScreen = props => {
     setIsLoading, 
     setRunGame, 
     setGameOver, 
-    setVictory 
+    setVictory,
   } = props;
   
   const [score, setScore] = useState(0);
@@ -26,8 +26,8 @@ export const GameScreen = props => {
       const card = {
         id: uuid(),
         content: {
-          image: data[i].image,
-          name: data[i].name,
+          image: data[i + 6].image,
+          name: data[i + 6].name,
         },
         isClicked: false,
       }
@@ -46,14 +46,13 @@ export const GameScreen = props => {
   // On mount populate cards array
   useEffect(() => {
     const deck = createDeck(12, characters);
-    setCards(deck);
+    setCards(shuffleDeck(deck));
    
     return () => {
       setIsLoading(true)
     }
   }, []);
    
-
   // return the id of the clicked card
   const getId = (e) => {
     if (e.target.id) return e.target.id
@@ -94,14 +93,16 @@ export const GameScreen = props => {
     <div className="game-screen">
       <Nav playerName={playerName} score={score}/>
       {!isLoading &&
-        <GameBoard 
-        characters={characters}
-        createDeck={createDeck}
-        cards={cards}
-        setCards={setCards}
-        shuffleDeck={shuffleDeck}
-        handleClick={handleClick}
-      />
+        
+          <GameBoard 
+            characters={characters}
+            createDeck={createDeck}
+            cards={cards}
+            setCards={setCards}
+            shuffleDeck={shuffleDeck}
+            handleClick={handleClick}
+          />
+        
       }
     </div>
   )

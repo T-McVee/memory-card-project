@@ -1,23 +1,6 @@
 .welcome-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  padding: 0 3rem;
-
-  .rm-logo {
-    width: 380px;
-    height: 120px;
-    margin-left: 55px;
-    background-image: url('../img/Rick_and_Morty_logo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-
   .characters {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     z-index: -0;
     right: 3rem;
@@ -27,6 +10,17 @@
     background-size: contain;
     background-repeat: no-repeat;
   }
+
+  @media (max-width: $mobile) {
+    /*  justify-content: initial;
+    padding: 1rem 0.5rem; */
+
+    .characters {
+      right: 0;
+      width: 180px;
+      height: 180px;
+    }
+  }
 }
 
 .heading {
@@ -35,6 +29,15 @@
   justify-content: center;
   align-items: center;
   z-index: 10;
+
+  .rm-logo {
+    width: 380px;
+    height: 120px;
+    margin-left: 55px;
+    background-image: url('../img/Rick_and_Morty_logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 
   .title {
     font-size: 3.5rem;
@@ -49,82 +52,106 @@
   }
 }
 
+@media (max-width: $mobile) {
+  .heading {
+    position: relative;
+    top: -10%;
+    .rm-logo {
+      display: none;
+    }
+
+    .title {
+      position: relative;
+      top: 0;
+      font-size: 2.5rem;
+    }
+
+    .sub-heading {
+      padding: 0 0.25rem;
+      margin: 2rem 0;
+      font-size: 1.8rem;
+    }
+  }
+}
+
 .settings-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 800px;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: $text-color-blue;
-  background-image: url('../img/static.gif');
-  border-radius: 8px;
-  border: 6px solid $dark-grey;
-  margin-top: 1.5rem;
-  padding: 0.5rem 3rem;
-  box-shadow: 2px 2px 8px $dark-grey, -2px -2px 8px $dark-grey;
 
   .form-control {
-    z-index: 10;
-    margin: 0.25rem 0.25rem;
-
-    label {
-      z-index: 10;
-      margin-right: 0.25rem;
-    }
-
-    input[type='text'] {
-      padding: 0.25rem 0.5rem;
-      background-color: rgba($color: #000000, $alpha: 0);
-      border: none;
-      border-bottom: 2px solid $black;
-      font-family: 'Amatic SC', cursive;
-      font-size: 1.6rem;
-      font-weight: 700;
-    }
-
-    button {
-      z-index: 1;
-      position: relative;
-      top: 100px;
-      padding: 0.25rem 1.25rem;
-      border: 3px solid $light-grey;
-      border-radius: 8px;
-      background-color: $dark-grey;
-      color: $white;
-      font-size: 1.5rem;
-      font-weight: 700;
-      font-family: 'IBM Plex Sans', sans-serif;
-      text-transform: uppercase;
-      transition: box-shadow 0.5s, transform 0.2s;
-
-      &:hover {
-        cursor: pointer;
-        box-shadow: 2px 2px 8px $green, -2px -2px 8px $green;
-        transform: scale(0.95);
-      }
-    }
+    margin: 0.5rem 0;
   }
 
-  .radio-group {
-    z-index: 10;
+  .screen {
+    z-index: 0;
+    position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 800px;
+    min-height: 160px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $text-color-blue;
+    background-image: url('../img/static.gif');
+    border-radius: 8px;
+    border: 6px solid $dark-grey;
+    margin-top: 1.5rem;
+    padding: 0.5rem 3rem;
+    box-shadow: 2px 2px 8px $dark-grey, -2px -2px 8px $dark-grey;
+
+    .form-control {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 20;
+      margin: 0.25rem 0.25rem;
+
+      label {
+        z-index: 20;
+        margin-right: 0.25rem;
+      }
+
+      input[type='text'] {
+        padding: 0.25rem 0.5rem;
+        background-color: rgba($color: #000000, $alpha: 0);
+        border: none;
+        border-bottom: 2px solid $black;
+        font-family: 'Amatic SC', cursive;
+        font-size: 1.6rem;
+        font-weight: 700;
+      }
+    }
+
+    .radio-group {
+      z-index: 10;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay {
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      opacity: 0.85;
+      min-width: calc(314px + 0rem);
+      min-height: 100%;
+      background-color: $green-blue;
+    }
+
+    span {
+      z-index: 20;
+    }
   }
 
-  .overlay {
-    z-index: 0;
-    position: absolute;
-    opacity: 0.85;
-    min-width: calc(314px + 0rem);
-    min-height: 168px;
-    background-color: $green-blue;
-  }
-  span {
-    z-index: 10;
+  @media (max-width: $mobile) {
+    position: relative;
+    top: -10%;
   }
 }

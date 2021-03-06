@@ -14,7 +14,7 @@ export const LoadingScreen = (props) => {
         setIsLoading(false)
       }, 2000); 
     })()
-  })
+  }, [])
 
   return (
     <div className="loading-screen">
