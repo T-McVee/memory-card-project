@@ -1,4 +1,4 @@
-import { Children } from 'react';
+
 import { FormControl } from './FormControl'
 
 export const SettingsForm = (props) => {
@@ -16,7 +16,7 @@ export const SettingsForm = (props) => {
             required 
           />
         </FormControl>
-        <span>Select your card deck</span>
+        <span>Choose deck</span>
         <div className="radio-group">
           <FormControl htmlFor="morty" label="Morty">
             <input 

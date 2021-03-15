@@ -1,4 +1,7 @@
 /* Breakpoints */
+.welcome-screen {
+  height: 100vh;
+}
 .welcome-screen .characters {
   position: fixed;
   bottom: 0;
@@ -280,7 +283,7 @@
 body {
   font-family: "Amatic SC", cursive;
   color: #353535;
-  background-color: #c1f4ef;
+  background-color: #fcf5cd;
   min-height: 100%;
 }
 
@@ -302,7 +305,7 @@ body {
   justify-content: center;
   align-items: center;
   min-width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   padding: 1rem 3rem;
   background-image: radial-gradient(#fcf5cd 52%, rgba(113, 113, 113, 0.12));
 }
@@ -324,6 +327,65 @@ body {
   cursor: pointer;
   box-shadow: 2px 2px 8px #86d565, -2px -2px 8px #86d565;
   transform: scale(0.95);
+}
+
+/* transitions */
+.fade {
+  opacity: 0;
+}
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter .characters {
+  bottom: -50%;
+  transform: scale(0.6);
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1.5s;
+}
+.fade-enter-done .characters {
+  transition: bottom 3s, transform 3s;
+  bottom: 0;
+  transform: scale(1);
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.spin-enter {
+  transform: scale(0.2) rotate(0deg);
+  opacity: 0.4;
+}
+.spin-enter-active {
+  transform: scale(1) rotate(1080deg);
+  opacity: 1;
+  transition: transform 1.5s, opacity 0.5s;
+}
+.spin-enter-done {
+  transform: rotate(720deg);
+  transition: transform 1.5s ease-out;
+}
+.spin-exit {
+  opacity: 1;
+}
+.spin-exit-active {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.fall-enter {
+  opacity: 0;
+  transform: translateY(-300px);
+}
+.fall-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 4s transform 3s;
 }
 
 /*# sourceMappingURL=main.css.map */

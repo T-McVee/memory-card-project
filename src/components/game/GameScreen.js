@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { CSSTransition } from 'react-transition-group' 
 import { Nav } from '../game/Nav'
 import { GameBoard } from '../game/GameBoard'
 import uuid from 'react-uuid';
@@ -16,6 +17,7 @@ export const GameScreen = props => {
   
   const [score, setScore] = useState(0);
   const [cards, setCards] = useState([]);
+  const [inProp, setInProp] = useState(false);
   
 
   // Create deck of n cards
@@ -45,10 +47,12 @@ export const GameScreen = props => {
 
   // On mount populate cards array
   useEffect(() => {
+    setInProp(true);
     const deck = createDeck(12, characters);
     setCards(shuffleDeck(deck));
    
     return () => {
+      setInProp(false)
       setIsLoading(true)
     }
   }, []);
@@ -68,7 +72,7 @@ export const GameScreen = props => {
 
     if (clickedCard.isClicked) {
       setRunGame(false);
-      //setGameOver(true);
+      setGameOver(true);
 
     } else {
       clickedCard.isClicked = true;
@@ -81,7 +85,6 @@ export const GameScreen = props => {
 
       // check if all cards are clicked
       if (cards.filter(card => card.isClicked === false).length === 0) {
-        console.log('YOU DID IT MORTY!')
         setVictory(true);
       } 
         // - Shuffle cards and rerender
@@ -90,10 +93,16 @@ export const GameScreen = props => {
   }
 
   return (
-    <div className="game-screen">
-      <Nav playerName={playerName} score={score}/>
-      {!isLoading &&
-        
+    <CSSTransition
+      in={inProp}
+      timeout={1000}
+      classNames="fade"
+      appear
+      unmountOnExit
+    >
+      <div className="game-screen">
+        <Nav playerName={playerName} score={score} highScore="--"/>
+        {!isLoading &&
           <GameBoard 
             characters={characters}
             createDeck={createDeck}
@@ -102,8 +111,8 @@ export const GameScreen = props => {
             shuffleDeck={shuffleDeck}
             handleClick={handleClick}
           />
-        
-      }
-    </div>
+        }
+      </div>
+    </CSSTransition>
   )
 }

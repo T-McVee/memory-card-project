@@ -4,6 +4,7 @@ import { WelcomeScreen } from './components/welcome/WelcomeScreen'
 import { LoadingScreen } from './components/LoadingScreen'
 import { VictoryScreen } from './components/VictoryScreen'
 import { GameScreen } from './components/game/GameScreen'
+import { CSSTransition } from 'react-transition-group'
 
 function App() {
   const [playerName, setPlayerName] = useState('Tim');
@@ -13,6 +14,8 @@ function App() {
   const [gameOver, setGameOver] = useState(false);
   const [victory, setVictory] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  
+  const [exitProp, setExitProp] = useState(false);
 
   const handleNameChange = (e) => {
     const {value} = e.target
@@ -39,25 +42,26 @@ function App() {
     setVictory(false)
     setIsLoading(true)
   }
+
   return (
     <div className="App">
-      {!runGame ?
+      {!runGame ? (
         <WelcomeScreen  
           deckTheme={deckTheme}
           handleNameChange={handleNameChange}
           toggleDeck={toggleDeck}
           handleSubmit={handleSubmit}
         />
-       : runGame && isLoading ? 
+      ) : runGame && isLoading ? (
         <LoadingScreen
           deckTheme={deckTheme} 
           characters={characters}
           setCharacters={setCharacters}
           setIsLoading={setIsLoading}
         />
-       : !gameOver && victory ? 
+      ) : !gameOver && victory ? (
         <VictoryScreen returnHome={returnHome}/>
-       : 
+      ) : (
         <GameScreen
           runGame={runGame}
           setRunGame={setRunGame}
@@ -68,7 +72,9 @@ function App() {
           setIsLoading={setIsLoading}
           setGameOver={setGameOver}
           setVictory={setVictory}
-        />}
+        />
+      )
+      }
     </div>
   );
 }
