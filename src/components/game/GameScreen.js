@@ -71,7 +71,7 @@ export const GameScreen = props => {
     const [clickedCard] = [...cards.filter(card => card.id === id)];
 
     if (clickedCard.isClicked) {
-      setRunGame(false);
+      //setRunGame(false);
       setGameOver(true);
 
     } else {
@@ -87,8 +87,6 @@ export const GameScreen = props => {
       if (cards.filter(card => card.isClicked === false).length === 0) {
         setVictory(true);
       } 
-        // - Shuffle cards and rerender
-        //setRunGame(false)
     }
   }
 

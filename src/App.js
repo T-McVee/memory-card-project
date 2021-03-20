@@ -3,6 +3,7 @@ import './style/main.css'
 import { WelcomeScreen } from './components/welcome/WelcomeScreen'
 import { LoadingScreen } from './components/LoadingScreen'
 import { VictoryScreen } from './components/VictoryScreen'
+import { GameOverScreen } from './components/GameOverScreen'
 import { GameScreen } from './components/game/GameScreen'
 import { CSSTransition } from 'react-transition-group'
 
@@ -40,6 +41,7 @@ function App() {
     setRunGame(false)
     setDeckTheme('morty')
     setVictory(false)
+    setGameOver(false)
     setIsLoading(true)
   }
 
@@ -59,8 +61,10 @@ function App() {
           setCharacters={setCharacters}
           setIsLoading={setIsLoading}
         />
-      ) : !gameOver && victory ? (
-        <VictoryScreen returnHome={returnHome}/>
+      ) : runGame && victory ? (
+        <VictoryScreen returnHome={returnHome} />
+      ) : runGame && gameOver ? (
+        <GameOverScreen returnHome={returnHome} />
       ) : (
         <GameScreen
           runGame={runGame}
