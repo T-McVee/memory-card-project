@@ -8,7 +8,7 @@ export const Nav = props => {
       <div className="container">
         <div className="score">
           <div className="current">{playerName}'s score: {score}</div>
-          <div className="high">High score: {highScore}</div>
+          <div className="high">High score: {highScore.score} - {highScore.name}</div>
         </div>
         <div className="credits"></div>
       </div>

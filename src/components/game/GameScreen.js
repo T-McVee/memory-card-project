@@ -13,9 +13,13 @@ export const GameScreen = props => {
     setRunGame, 
     setGameOver, 
     setVictory,
+    storageAvailable,
+    saveHighScoreToLocalStorage,
+    getHighScoreFromLocalStorage
   } = props;
   
-  const [score, setScore] = useState(0);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [highScore, setHighScore] = useState({name:'', score: 0,});
   const [cards, setCards] = useState([]);
   const [inProp, setInProp] = useState(false);
   
@@ -50,6 +54,11 @@ export const GameScreen = props => {
     setInProp(true);
     const deck = createDeck(12, characters);
     setCards(shuffleDeck(deck));
+
+    //check localstorage for highscore 
+    if (storageAvailable('localStorage') && getHighScoreFromLocalStorage()) {
+      setHighScore(getHighScoreFromLocalStorage());
+    } 
    
     return () => {
       setInProp(false)
@@ -71,15 +80,21 @@ export const GameScreen = props => {
     const [clickedCard] = [...cards.filter(card => card.id === id)];
 
     if (clickedCard.isClicked) {
-      //setRunGame(false);
+      
+      if (currentScore > highScore.score) {
+        console.log('Big Boi', currentScore)
+        saveHighScoreToLocalStorage({name: playerName, score: currentScore})
+      }
+      
       setGameOver(true);
-
+      
     } else {
       clickedCard.isClicked = true;
 
       const otherCards = cards.filter(card => card.id !== id)
       setCards(otherCards.concat(clickedCard));
-      setScore(score + 1);
+      setCurrentScore(currentScore + 1);
+      console.log('current score:', currentScore)
 
       setCards(shuffleDeck(cards))
 
@@ -90,6 +105,8 @@ export const GameScreen = props => {
     }
   }
 
+  
+
   return (
     <CSSTransition
       in={inProp}
@@ -99,7 +116,7 @@ export const GameScreen = props => {
       unmountOnExit
     >
       <div className="game-screen">
-        <Nav playerName={playerName} score={score} highScore="--"/>
+        <Nav playerName={playerName} score={currentScore} highScore={highScore}/>
         {!isLoading &&
           <GameBoard 
             characters={characters}

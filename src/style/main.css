@@ -206,6 +206,9 @@
 .game-screen nav .container .score {
   color: #353535;
 }
+.game-screen nav .container .score .high {
+  font-size: 1.4rem;
+}
 .game-screen nav .container .credits {
   width: 0;
 }
