@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import './style/main.css'
 import { WelcomeScreen } from './components/welcome/WelcomeScreen'
 import { LoadingScreen } from './components/LoadingScreen'
@@ -6,6 +8,8 @@ import { VictoryScreen } from './components/VictoryScreen'
 import { GameOverScreen } from './components/GameOverScreen'
 import { GameScreen } from './components/game/GameScreen'
 import { CSSTransition } from 'react-transition-group'
+
+library.add(fab)
 
 function App() {
   const [playerName, setPlayerName] = useState('Tim');

@@ -25,6 +25,19 @@
   }
 }
 
+.git-icon a {
+  position: absolute;
+  top: 1rem;
+  right: 3rem;
+  font-size: 1.4rem;
+  color: #353535;
+  transition: color 0.2s;
+}
+.git-icon a:hover {
+  cursor: pointer;
+  color: #3a99bb;
+}
+
 .heading {
   display: flex;
   flex-direction: column;

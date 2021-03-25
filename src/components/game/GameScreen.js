@@ -81,8 +81,8 @@ export const GameScreen = props => {
 
     if (clickedCard.isClicked) {
       
-      if (currentScore > highScore.score) {
-        console.log('Big Boi', currentScore)
+      // Check for new high score
+      if (currentScore >= highScore.score) {
         saveHighScoreToLocalStorage({name: playerName, score: currentScore})
       }
       
@@ -100,6 +100,11 @@ export const GameScreen = props => {
 
       // check if all cards are clicked
       if (cards.filter(card => card.isClicked === false).length === 0) {
+        
+        // Check for new high score
+        if (currentScore + 1 >= highScore.score) {
+          saveHighScoreToLocalStorage({name: playerName, score: currentScore + 1})
+        }
         setVictory(true);
       } 
     }
