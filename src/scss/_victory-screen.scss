@@ -20,4 +20,34 @@
       margin: 2rem 0 1rem;
     }
   }
+
+  .characters {
+    position: fixed;
+    bottom: 10px;
+    z-index: -0;
+    right: 2.2rem;
+    width: 260px;
+    height: 260px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &.characters-victory {
+      background-image: url('../img/celebrate.png');
+    }
+
+    &.characters-fail {
+      background-image: url('../img/fail.png');
+    }
+  }
+
+  @media (max-width: $mobile) {
+    /*  justify-content: initial;
+    padding: 1rem 0.5rem; */
+
+    .characters {
+      right: 0;
+      width: 180px;
+      height: 180px;
+    }
+  }
 }

@@ -15,7 +15,6 @@ export const GameOverScreen = (props) => {
   }, [])
 
   return (
-    
       <div className="victory-screen">
         <CSSTransition
           in={inProp}
@@ -29,6 +28,7 @@ export const GameOverScreen = (props) => {
             <button className="btn-large" onClick={e => returnHome(e)}>Return to home</button>
           </div>
         </CSSTransition>
+        <div className="characters characters-fail"></div>
       </div>
     
   )

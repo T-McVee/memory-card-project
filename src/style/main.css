@@ -144,7 +144,7 @@
   position: absolute;
   top: 0;
   opacity: 0.85;
-  min-width: calc(314px + 0rem);
+  min-width: 316px;
   min-height: 100%;
   background-color: #c1f4ef;
 }
@@ -297,6 +297,33 @@
 .victory-screen .container .btn-large {
   position: initial;
   margin: 2rem 0 1rem;
+}
+.victory-screen .characters {
+  position: fixed;
+  bottom: 10px;
+  z-index: 0;
+  right: 2.2rem;
+  width: 260px;
+  height: 260px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.victory-screen .characters.characters-victory {
+  background-image: url("../img/celebrate.png");
+}
+.victory-screen .characters.characters-fail {
+  background-image: url("../img/fail.png");
+}
+@media (max-width: 425px) {
+  .victory-screen {
+    /*  justify-content: initial;
+    padding: 1rem 0.5rem; */
+  }
+  .victory-screen .characters {
+    right: 0;
+    width: 180px;
+    height: 180px;
+  }
 }
 
 * {
