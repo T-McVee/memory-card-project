@@ -14,10 +14,6 @@
   background-repeat: no-repeat;
 }
 @media (max-width: 425px) {
-  .welcome-screen {
-    /*  justify-content: initial;
-    padding: 1rem 0.5rem; */
-  }
   .welcome-screen .characters {
     right: 0;
     width: 180px;
@@ -25,17 +21,37 @@
   }
 }
 
-.git-icon a {
+.git-icon {
   position: absolute;
   top: 1rem;
   right: 3rem;
+  transform: translateX(120px);
+  width: 120px;
+  height: 28px;
+}
+.git-icon a {
   font-size: 1.4rem;
   color: #353535;
   transition: color 0.2s;
+  text-decoration: none;
 }
 .git-icon a:hover {
   cursor: pointer;
   color: #3a99bb;
+}
+.git-icon a:hover span {
+  transform: translateX(-120px);
+}
+.git-icon a .container {
+  position: relative;
+  z-index: 10;
+  background-color: #fcf5cd;
+}
+.git-icon a span {
+  z-index: 0;
+  position: absolute;
+  width: 140px;
+  transition: transform 0.3s;
 }
 
 .heading {
@@ -60,14 +76,14 @@
 }
 .heading .sub-heading {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 800;
   text-align: center;
 }
 
 @media (max-width: 768px) {
   .heading {
     position: relative;
-    top: -10%;
+    top: -5%;
   }
   .heading .rm-logo {
     display: none;
@@ -79,8 +95,8 @@
   }
   .heading .sub-heading {
     padding: 0 0.25rem;
-    margin: 2rem 0 1rem;
-    font-size: 1.8rem;
+    margin: 1rem 0 1rem;
+    font-size: 1.5rem;
   }
 }
 .settings-form {
@@ -128,6 +144,7 @@
   background-color: rgba(0, 0, 0, 0);
   border: none;
   border-bottom: 2px solid #353535;
+  border-radius: 0;
   font-family: "Amatic SC", cursive;
   font-size: 1.6rem;
   font-weight: 700;
@@ -145,6 +162,7 @@
   top: 0;
   opacity: 0.85;
   min-width: 316px;
+  width: 100%;
   min-height: 100%;
   background-color: #c1f4ef;
 }
@@ -273,9 +291,12 @@
   margin: 0.5rem 0;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 768px) {
   .game-board-inner {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .game-board-inner .card .content-img .avatar {
+    height: 100%;
   }
 }
 
@@ -359,7 +380,6 @@ body {
   min-width: 100%;
   min-height: 100vh;
   padding: 1rem 3rem;
-  background-image: radial-gradient(#fcf5cd 52%, rgba(113, 113, 113, 0.12));
 }
 
 .btn-large {

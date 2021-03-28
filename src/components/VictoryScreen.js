@@ -25,7 +25,7 @@ export const VictoryScreen = (props) => {
       >
         <div className="container">
           <h2>YOU DID IT MORTY!</h2>
-          <button className="btn-large" onClick={e => returnHome(e)}>Return to home</button>
+          <button className="btn-large" onClick={e => returnHome(e)}>Return home</button>
         </div>
       </CSSTransition>
         <div className="characters characters-victory"></div>

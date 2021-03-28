@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { GitIcon } from './GitIcon'
 import { Heading } from './Heading'
 import { SettingsForm } from './SettingsForm'
 import { CSSTransition } from 'react-transition-group' 
@@ -25,11 +25,7 @@ export const WelcomeScreen = props => {
       unmountOnExit
     >
       <div className="welcome-screen">
-        <div className="git-icon">
-          <a href="https://github.com/T-McVee/memory-card-project" target="blank">
-            <FontAwesomeIcon icon={["fab", "github"]}/>
-          </a>
-        </div>
+          <GitIcon />
         <Heading />
         <SettingsForm 
           handleNameChange={handleNameChange}

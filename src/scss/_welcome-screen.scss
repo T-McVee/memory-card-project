@@ -14,9 +14,6 @@
   }
 
   @media (max-width: $mobile) {
-    /*  justify-content: initial;
-    padding: 1rem 0.5rem; */
-
     .characters {
       right: 0;
       width: 180px;
@@ -25,17 +22,41 @@
   }
 }
 
-.git-icon a {
+.git-icon {
   position: absolute;
   top: 1rem;
   right: 3rem;
-  font-size: 1.4rem;
-  color: $black;
-  transition: color 0.2s;
+  transform: translateX(120px);
+  width: 120px;
+  height: 28px;
+  //text-align: right;
+  a {
+    font-size: 1.4rem;
+    color: $black;
+    transition: color 0.2s;
+    text-decoration: none;
 
-  &:hover {
-    cursor: pointer;
-    color: $text-color-blue;
+    &:hover {
+      cursor: pointer;
+      color: $text-color-blue;
+
+      span {
+        transform: translateX(-120px);
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      background-color: $bg-color;
+    }
+
+    span {
+      z-index: 0;
+      position: absolute;
+      width: 140px;
+      transition: transform 0.3s;
+    }
   }
 }
 
@@ -63,7 +84,7 @@
 
   .sub-heading {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 800;
     text-align: center;
   }
 }
@@ -71,7 +92,7 @@
 @media (max-width: $tablet) {
   .heading {
     position: relative;
-    top: -10%;
+    top: -5%;
     .rm-logo {
       display: none;
     }
@@ -84,8 +105,8 @@
 
     .sub-heading {
       padding: 0 0.25rem;
-      margin: 2rem 0 1rem;
-      font-size: 1.8rem;
+      margin: 1rem 0 1rem;
+      font-size: 1.5rem;
     }
   }
 }
@@ -137,6 +158,7 @@
         background-color: rgba($color: #000000, $alpha: 0);
         border: none;
         border-bottom: 2px solid $black;
+        border-radius: 0;
         font-family: 'Amatic SC', cursive;
         font-size: 1.6rem;
         font-weight: 700;
@@ -157,6 +179,7 @@
       top: 0;
       opacity: 0.85;
       min-width: 316px;
+      width: 100%;
       min-height: 100%;
       background-color: $green-blue;
     }
@@ -166,8 +189,8 @@
     }
   }
 }
-.settings-form{
-  @media (max-width:$tablet) {
+.settings-form {
+  @media (max-width: $tablet) {
     position: relative;
     top: -10%;
   }

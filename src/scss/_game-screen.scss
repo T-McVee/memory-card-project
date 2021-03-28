@@ -20,7 +20,6 @@
 
         .high {
           font-size: 1.4rem;
-          
         }
       }
 
@@ -85,9 +84,16 @@
 }
 
 .game-board {
-  @media (max-width: $mobile) {
+  @media (max-width: $tablet) {
     &-inner {
       grid-template-columns: repeat(2, 1fr);
+      .card {
+        .content-img {
+          .avatar {
+            height: 100%;
+          }
+        }
+      }
     }
   }
 }

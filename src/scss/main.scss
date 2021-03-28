@@ -37,7 +37,7 @@ body {
   min-width: 100%;
   min-height: 100vh;
   padding: 1rem 3rem;
-  background-image: radial-gradient($bg-color 52%, rgba($dark-grey, 0.12));
+  //background-image: radial-gradient($bg-color 52%, rgba($dark-grey, 0.12));
 }
 
 .btn-large {
@@ -100,7 +100,7 @@ body {
   &-enter {
     transform: scale(0.2) rotate(0deg);
     opacity: 0.4;
-    
+
     &-active {
       transform: scale(1) rotate(1080deg);
       opacity: 1;
@@ -126,11 +126,11 @@ body {
 .fall {
   &-enter {
     opacity: 0;
-    transform: translateY(-300px); 
+    transform: translateY(-300px);
 
     &-active {
       opacity: 1;
-      transform: translateY(0px); 
+      transform: translateY(0px);
       transition: opacity 4s transform 3s;
     }
   }
