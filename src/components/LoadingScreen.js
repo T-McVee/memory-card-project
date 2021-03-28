@@ -22,7 +22,7 @@ export const LoadingScreen = (props) => {
     return () => {
       setInProp(false)
     }
-  }, [])
+  })
 
   return (
     <CSSTransition

@@ -1,4 +1,3 @@
-import React, {useState, useEffect} from 'react'
 import { CSSTransition } from 'react-transition-group' 
 
 export const Card = (props) => {

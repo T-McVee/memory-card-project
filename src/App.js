@@ -7,7 +7,7 @@ import { LoadingScreen } from './components/LoadingScreen'
 import { VictoryScreen } from './components/VictoryScreen'
 import { GameOverScreen } from './components/GameOverScreen'
 import { GameScreen } from './components/game/GameScreen'
-import { CSSTransition } from 'react-transition-group'
+
 
 library.add(fab)
 
@@ -19,8 +19,6 @@ function App() {
   const [gameOver, setGameOver] = useState(false);
   const [victory, setVictory] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  
-  const [exitProp, setExitProp] = useState(false);
 
   const handleNameChange = (e) => {
     const {value} = e.target
