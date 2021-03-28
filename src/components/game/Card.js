@@ -11,7 +11,7 @@ export const Card = (props) => {
         </div>
         <div className="content-name">{content.name}</div>
         {/* Cheat Mode */}
-        {isClicked && <p>Clicked</p>}
+        {/* {isClicked && <p>Clicked</p>} */}
       </div>
     </CSSTransition>
   )
