@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/memory-card-project/static/css/main.e6d8c002.chunk.css",
-    "main.js": "/memory-card-project/static/js/main.306f8acd.chunk.js",
-    "main.js.map": "/memory-card-project/static/js/main.306f8acd.chunk.js.map",
+    "main.js": "/memory-card-project/static/js/main.e3a7ec5c.chunk.js",
+    "main.js.map": "/memory-card-project/static/js/main.e3a7ec5c.chunk.js.map",
     "runtime-main.js": "/memory-card-project/static/js/runtime-main.8bdc6745.js",
     "runtime-main.js.map": "/memory-card-project/static/js/runtime-main.8bdc6745.js.map",
     "static/js/2.d705ec30.chunk.js": "/memory-card-project/static/js/2.d705ec30.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.8bdc6745.js",
     "static/js/2.d705ec30.chunk.js",
     "static/css/main.e6d8c002.chunk.css",
-    "static/js/main.306f8acd.chunk.js"
+    "static/js/main.e3a7ec5c.chunk.js"
   ]
 }
